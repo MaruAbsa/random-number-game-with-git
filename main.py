@@ -16,9 +16,11 @@ def difference_from_answer(guess,answer):
 
 
 def make_a_guess():
-   user = int(input("Guess a number between 1 and 100 "))
-   random_number = generate_random_number()
-   return difference_from_answer(user,random_number)
-
-
+  random_number = generate_random_number()
+  user = input("Guess a number between 1 and 100 ")
+  if user.isdigit():
+    user = int(user)
+    return difference_from_answer(user,random_number)
+  else:
+    return "Invalid guess, please enter a number"
 print(make_a_guess())
